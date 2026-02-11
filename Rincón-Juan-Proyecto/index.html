@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Historia Clínica Electrónica</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Botón de cambio de tema -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+      🌙
+    </button>
+
+    <!-- Tarjeta principal del sistema -->
+    <div class="card">
+
+      <!-- Encabezado -->
+      <div class="card-header">
+        <div class="avatar">
+          <img
+            src="https://marketplace.canva.com/EAFWjOMB_2g/1/0/400w/canva-logotipo-centro-de-salud-clinica-estilo-minimalista-simple-elegante-color-azul-verde-menta-blanco-celeste-vzs0PT_YIqU.jpg"
+            alt="EHR System Logo"
+          />
+        </div>
+        <div class="header-info">
+          <h1 id="entity-name">Cargando...</h1>
+          <p class="subtitle">Sistema Clínico Digital</p>
+          <p class="userlocation" id="userLocation">📍 Cargando...</p>
+        </div>
+      </div>
+
+      <!-- Descripción del sistema -->
+      <div class="card-section">
+        <h2>Descripción</h2>
+        <div id="entity-description">
+          Cargando...
+        </div>
+      </div>
+
+      <!-- Información de contacto -->
+      <div class="card-section">
+        <h2>Contacto</h2>
+        <div id="entity-contact" class="contact-info">
+          Cargando...
+        </div>
+        <button id="copy-btn" class="btn btn-small">
+          Copiar información
+        </button>
+      </div>
+
+      <!-- Módulos del sistema -->
+      <div class="card-section">
+        <h2>Módulos del sistema</h2>
+        <div id="items-list" class="items-list">
+          Cargando...
+        </div>
+        <button id="toggle-items" class="btn btn-secondary">
+          Mostrar más
+        </button>
+      </div>
+
+      <!-- Enlaces del sistema -->
+      <div class="card-section">
+        <h2>Recursos</h2>
+        <div id="links" class="social-links">
+          Cargando...
+        </div>
+      </div>
+
+      <!-- Estadísticas -->
+      <div class="card-section">
+        <h2>Estadísticas del sistema</h2>
+        <div id="stats" class="stats-grid">
+          Cargando...
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+      <p>🩺 Sistema de Historia Clínica Electrónica</p>
+      <p class="small">Proyecto Semana 01 · JavaScript ES2023</p>
+    </footer>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">
+    <span id="toast-message"></span>
+  </div>
+
+  <!-- Script principal -->
+  <script src="starter/script.js"></script>
+</body>
+</html>
