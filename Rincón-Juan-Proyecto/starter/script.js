@@ -1,5 +1,5 @@
 /* ============================================
-   PROYECTO SEMANA 01 - FICHA DE INFORMACIÓN INTERACTIVA
+   PROYECTO SEMANA 01 - FICHA DE INFORMACIÓN INTERACTIVA 29
    Dominio: Sistema de Historia Clínica Electrónica (EHR)
    ============================================ */
 
@@ -224,3 +224,4 @@ const init = () => {
 };
 
 init();
+
