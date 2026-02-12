@@ -1,0 +1,353 @@
+/* ============================================
+   Variables CSS - Tema clínico
+   ============================================ */
+:root {
+  --bg-primary: #f4f7fb;
+  --bg-secondary: #ffffff;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --accent: #2b6cb0;            /* Azul clínico */
+  --accent-hover: #2c5282;
+  --border: #e2e8f0;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --success: #38a169;           /* Verde salud */
+  --transition: 0.3s ease;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --text-primary: #f7fafc;
+  --text-secondary: #e2e8f0;
+  --border: #4a5568;
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================================
+   Theme Toggle
+   ============================================ */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all var(--transition);
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   Card - Panel Clínico
+   ============================================ */
+.card {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  box-shadow: 0 6px 24px var(--shadow);
+  width: 100%;
+  max-width: 680px;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+/* ============================================
+   Header
+   ============================================ */
+.card-header {
+  background: linear-gradient(135deg, var(--accent), #63b3ed);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-info h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+.location {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ============================================
+   Sections
+   ============================================ */
+.card-section {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-section:last-child {
+  border-bottom: none;
+}
+
+.card-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   Contact
+   ============================================ */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   System Modules (Items)
+   ============================================ */
+.items-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.item {
+  background: var(--bg-primary);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+
+.item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.item-name {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.item-level {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.level-bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+.level-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #63b3ed);
+}
+
+/* ============================================
+   Links / Resources
+   ============================================ */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all var(--transition);
+}
+
+.social-links a:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* ============================================
+   Statistics
+   ============================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.stat-item {
+  background: var(--bg-primary);
+  padding: 1.25rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+}
+
+.btn-small {
+  width: auto;
+  font-size: 0.85rem;
+}
+
+.btn-secondary {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--border);
+}
+
+/* ============================================
+   Toast
+   ============================================ */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--success);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  transform: translateY(200%);
+  transition: transform var(--transition);
+  z-index: 2000;
+}
+
+.toast.show {
+  transform: translateY(0);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.small {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 640px) {
+  .card-header {
+    padding: 1.5rem;
+  }
+
+  .header-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .card-section {
+    padding: 1rem 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
