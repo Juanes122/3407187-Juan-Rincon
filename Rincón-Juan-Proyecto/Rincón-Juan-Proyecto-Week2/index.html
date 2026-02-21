@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Sistema de Historia Clínica Electrónica</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+      <h1>🩺 Historia Clínica Electrónica</h1>
+      <p class="subtitle">Gestión básica de registros clínicos</p>
+
+      <div class="stats-summary">
+        <span class="stat">Total: <strong id="stat-total">0</strong></span>
+        <span class="stat">Activos: <strong id="stat-active">0</strong></span>
+        <span class="stat">Archivados: <strong id="stat-inactive">0</strong></span>
+      </div>
+    </header>
+
+    <!-- ================= FORMULARIO ================= -->
+    <section class="form-section">
+      <h2 id="form-title">➕ Nuevo Registro Clínico</h2>
+
+      <form id="item-form" class="item-form">
+
+        <!-- Paciente -->
+        <div class="form-group">
+          <label for="item-name">Nombre del paciente *</label>
+          <input
+            type="text"
+            id="item-name"
+            placeholder="Ej: Juan Pérez"
+            required
+          />
+        </div>
+
+        <!-- Descripción -->
+        <div class="form-group">
+          <label for="item-description">Descripción clínica</label>
+          <textarea
+            id="item-description"
+            rows="3"
+            placeholder="Motivo de consulta, observaciones, síntomas..."
+          ></textarea>
+        </div>
+
+        <div class="form-row">
+          <!-- Categoría -->
+          <div class="form-group">
+            <label for="item-category">Tipo de registro</label>
+            <select id="item-category">
+              <option value="consultation">🩺 Consulta médica</option>
+              <option value="diagnosis">🧠 Diagnóstico</option>
+              <option value="treatment">💊 Tratamiento</option>
+              <option value="exam">🧪 Examen</option>
+              <option value="note">📝 Nota clínica</option>
+            </select>
+          </div>
+
+          <!-- Prioridad -->
+          <div class="form-group">
+            <label for="item-priority">Nivel de urgencia</label>
+            <select id="item-priority">
+              <option value="low">🟢 Baja</option>
+              <option value="medium" selected>🟡 Media</option>
+              <option value="high">🔴 Alta</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Médico -->
+        <div class="form-group">
+          <label for="item-doctor">Médico responsable</label>
+          <input
+            type="text"
+            id="item-doctor"
+            placeholder="Ej: Dr. Carlos Gómez"
+          />
+        </div>
+
+        <!-- Botones -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submit-btn">
+            Guardar registro
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="cancel-btn"
+            style="display: none;"
+          >
+            Cancelar
+          </button>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- ================= FILTROS ================= -->
+    <section class="filters-section">
+      <div class="filters">
+
+        <div class="filter-group">
+          <label for="filter-status">Estado</label>
+          <select id="filter-status">
+            <option value="all">Todos</option>
+            <option value="active">Activos</option>
+            <option value="inactive">Archivados</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-category">Tipo</label>
+          <select id="filter-category">
+            <option value="all">Todos</option>
+            <option value="consultation">Consulta</option>
+            <option value="diagnosis">Diagnóstico</option>
+            <option value="treatment">Tratamiento</option>
+            <option value="exam">Examen</option>
+            <option value="note">Nota</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-priority">Urgencia</label>
+          <select id="filter-priority">
+            <option value="all">Todas</option>
+            <option value="high">Alta</option>
+            <option value="medium">Media</option>
+            <option value="low">Baja</option>
+          </select>
+        </div>
+
+        <div class="filter-group search-group">
+          <label for="search-input">Buscar</label>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Buscar por paciente o descripción..."
+          />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= LISTA ================= -->
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📋 Registros Clínicos</h2>
+
+        <button class="btn btn-outline" id="clear-inactive">
+          🗑️ Eliminar archivados
+        </button>
+      </div>
+
+      <div id="item-list" class="item-list">
+        <!-- Render dinámico -->
+      </div>
+
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay registros clínicos</p>
+        <p class="empty-state-hint">
+          Crea el primer registro usando el formulario
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= ESTADÍSTICAS ================= -->
+    <section class="detailed-stats">
+      <h3>📊 Estadísticas del sistema</h3>
+      <div id="stats-details" class="stats-grid"></div>
+    </section>
+
+  </div>
+
+  <!-- Script -->
+  <script src="starter/script.js"></script>
+</body>
+</html>
