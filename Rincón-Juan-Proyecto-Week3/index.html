@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🏥 MediCare EHR | Historia Clínica Electrónica</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1>🏥 MediCare EHR</h1>
+            <p class="subtitle">Sistema Integral de Historia Clínica Electrónica</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="catalog">📋 Registros Médicos</button>
+            <button class="tab-btn" data-tab="users">👨‍⚕️ Personal Médico</button>
+            <button class="tab-btn" data-tab="transactions">🔄 Auditoría</button>
+            <button class="tab-btn" data-tab="stats">📊 Estadísticas</button>
+        </nav>
+
+        <main class="tab-content">
+            <section id="catalog" class="tab-panel active">
+                <div class="panel-header">
+                    <h2>📋 Pacientes y Registros</h2>
+                    <div class="actions">
+                        <input type="text" id="search-input" placeholder="Buscar por nombre..." />
+                        <select id="filter-type">
+                            <option value="all">Todos los tipos</option>
+                            <option value="Consultation">Consultas</option>
+                            <option value="LabTest">Laboratorio</option>
+                            <option value="Prescription">Recetas</option>
+                        </select>
+                        <select id="filter-status">
+                            <option value="all">Cualquier estado</option>
+                            <option value="active">Activos</option>
+                            <option value="inactive">Archivados</option>
+                        </select>
+                        <button id="add-item-btn" class="btn btn-primary" onclick="openModal('modal-record')">
+                            + Nuevo Registro
+                        </button>
+                    </div>
+                </div>
+                <div id="item-list" class="items-grid"></div>
+            </section>
+
+            <section id="users" class="tab-panel" style="display: none;">
+                <div class="panel-header">
+                    <h2>👨‍⚕️ Personal Médico</h2>
+                    <div class="actions">
+                        <input type="text" id="search-users" placeholder="Buscar personal..." />
+                        <button class="btn btn-primary" onclick="openModal('modal-user')">+ Alta Personal</button>
+                    </div>
+                </div>
+                <div id="user-list" class="users-grid"></div>
+            </section>
+
+            <section id="transactions" class="tab-panel" style="display: none;">
+                <div class="panel-header">
+                    <h2>🔄 Historial de Cambios (Auditoría)</h2>
+                </div>
+                <div id="audit-list" class="transactions-list">
+                    </div>
+            </section>
+
+            <section id="stats" class="tab-panel" style="display: none;">
+                <div class="panel-header">
+                    <h2>📊 Rendimiento y Estadísticas</h2>
+                </div>
+                <div id="stats-container" class="stats-grid">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="modal-record" class="modal">
+        <div class="modal-content">
+            <h3>NUEVO REGISTRO CLÍNICO</h3>
+            <form id="form-record">
+                <input type="text" id="reg-name" placeholder="Nombre del Paciente" required>
+                <select id="reg-type">
+                    <option value="Consultation">Consulta Médica</option>
+                    <option value="LabTest">Examen de Laboratorio</option>
+                    <option value="Prescription">Receta Médica</option>
+                </select>
+                <input type="text" id="reg-location" placeholder="Ubicación (Ej: Piso 2)" required>
+                <textarea id="reg-detail" placeholder="Detalles del diagnóstico o receta" required></textarea>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('modal-record')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-user" class="modal">
+        <div class="modal-content">
+            <h3>ALTA DE PERSONAL</h3>
+            <form id="form-user">
+                <input type="text" id="user-name" placeholder="Nombre Completo" required>
+                <input type="email" id="user-email" placeholder="Email Institucional" required>
+                <select id="user-role">
+                    <option value="Doctor">Médico</option>
+                    <option value="Nurse">Enfermero/a</option>
+                </select>
+                <input type="text" id="user-extra" placeholder="Especialidad o Pabellón" required>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('modal-user')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="starter/script.js"></script>
+</body>
+</html>
